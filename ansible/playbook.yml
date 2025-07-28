@@ -1,0 +1,34 @@
+---
+ - name: Installing docker on all nodes
+   hosts: all
+   become: true
+   roles:
+     - install-docker
+
+ - name: Install aws cli on manager and worker nodes
+   hosts: all
+   become: true
+   roles: 
+      - role: deploy-services
+        tags: login
+     
+
+ - name: Initializing docker swarm on manager node
+   hosts: manager
+   become: true
+   roles:
+     - swarm-init
+
+ - name: Joining worker node to manager node
+   hosts: workers
+   become: true
+   roles:
+     - swarm-join
+
+ - name: Deploying services
+   hosts: manager
+   become: true
+   roles:
+     - role: deploy-services
+       tags: deploy
+...
