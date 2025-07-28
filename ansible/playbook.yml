@@ -1,6 +1,6 @@
 ---
  - name: Installing docker on all nodes
-   hosts: all
+   hosts: workers
    become: true
    roles:
      - install-docker
