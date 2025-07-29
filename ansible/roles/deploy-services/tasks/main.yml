@@ -1,10 +1,10 @@
 ---
- - name: Install AWS CLI
-   apt: 
-    name: awscli
-    state: present
-    update_cache: true
-   tags: login
+ # - name: Install AWS CLI
+ #   apt: 
+ #    name: awscli
+ #    state: present
+ #    update_cache: true
+ #   tags: login
 
 
 
