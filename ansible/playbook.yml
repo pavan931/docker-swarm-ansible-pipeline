@@ -5,12 +5,12 @@
    roles:
      - install-docker
 
- # - name: Install aws cli on manager and worker nodes
- #   hosts: all
- #   become: true
- #   roles: 
- #      - role: deploy-services
- #        tags: login
+ - name: Install aws cli on manager and worker nodes
+   hosts: all
+   become: true
+   roles: 
+      - role: deploy-services
+        tags: login
      
 
  - name: Initializing docker swarm on manager node
