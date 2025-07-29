@@ -8,12 +8,12 @@
 
 
 
- - name: Login to AWS  ecr
-   shell: |
-     aws ecr get-login-password --region us-west-1 | docker login --username AWS --password-stdin 992151247814.dkr.ecr.us-west-1.amazonaws.com
-   args: 
-     executable: /bin/bash
-   tags: login
+ # - name: Login to AWS  ecr
+ #   shell: |
+ #     aws ecr get-login-password --region us-west-1 | docker login --username AWS --password-stdin 992151247814.dkr.ecr.us-west-1.amazonaws.com
+ #   args: 
+ #     executable: /bin/bash
+ #   tags: login
 
 
  - name: Pull custom app image from ECR
