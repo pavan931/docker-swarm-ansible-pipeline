@@ -1,7 +1,7 @@
 ---
- - name: Check if node is already part of a swarm
-   shell: "docker info --format '{{{{ .Swarm.LocalNodeState }}}}'"
-   register: swarm_status
+ # - name: Check if node is already part of a swarm
+ #   shell: "docker info --format '{{{{ .Swarm.LocalNodeState }}}}'"
+ #   register: swarm_status
 
  - name: Initialize docker swarm if not already initialized
    shell: docker swarm init --advertise-addr {{ ansible_host }}
