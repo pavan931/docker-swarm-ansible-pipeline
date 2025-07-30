@@ -1,6 +1,6 @@
 ---
  - name: Check if node is already part of a swarm
-   shell: 'docker info --format "{{ .Swarm.LocalNodeState }}"'
+   shell: "docker info --format '{{{{ .Swarm.LocalNodeState }}}}'"
    register: swarm_status
 
  - name: Initialize docker swarm if not already initialized
