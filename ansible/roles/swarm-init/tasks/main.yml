@@ -1,15 +1,13 @@
 ---
-- name: Check if node is already part of a swarm
-  shell: docker info --format '{{ .Swarm.LocalNodeState }}'
-  register: swarm_status
+ - name: Check if node is already part of a swarm
+   shell: docker info --format '{{ .Swarm.LocalNodeState }}'
+   register: swarm_status
 
-- name: Initialize docker swarm if not already initialized
-  shell: docker swarm init --advertise-addr {{ ansible_host }}
-  when: swarm_status.stdout != 'active'
-  register: swarm_init_result
-
- 
-
+ - name: Initialize docker swarm if not already initialized
+   shell: docker swarm init --advertise-addr {{ ansible_host }}
+   when: swarm_status.stdout != 'active'
+   register: swarm_init_result
+   
  - name: Get worker join token
    shell: docker swarm join-token worker -q
    register: worker_token
