@@ -14,5 +14,6 @@
  - name: save token
    set_fact:
      join_token: "{{worker_token.stdout}}"
+   when: swarm_init_result is succeeded and worker_token is defined and worker_token.stdout is defined
 ...
 
