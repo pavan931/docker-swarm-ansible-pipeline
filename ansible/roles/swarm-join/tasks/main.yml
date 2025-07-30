@@ -1,6 +1,8 @@
 ---
  - name: Join worker nodes to manager node
    shell: docker swarm join --token {{hostvars['manager-node'].join_token}} {{hostvars['manager-node'].ansible_host}}:2377
-   when: inventory_hostname != 'manager-node'
+   when:
+    - inventory_hostname != 'manager-node'
+    - hostvars['manager-node'].join_token is defined
    ignore_errors: true
 ...
